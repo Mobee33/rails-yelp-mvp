@@ -1,5 +1,6 @@
 class Review < ApplicationRecord
+  RATING = [0, 1, 2, 3, 4, 5]
   belongs_to :restaurant
   validates :content, presence: true
-  validates :rating, presence: true, inclusion: { in: [0, 1, 2, 3, 4, 5] }, numericality: true
+  validates :rating, presence: true, inclusion: { in: [1, 2, 3, 4, 5] }, numericality: true, exclusion: { in: [0], message: "%{value} can't be 0" }
 end
