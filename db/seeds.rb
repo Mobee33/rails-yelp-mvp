@@ -12,8 +12,10 @@ Restaurant.destroy_all
 puts "Creating restaurants..."
 
 5.times do |number|
+  phone_num = Faker::PhoneNumber.phone_number
+  puts phone_num
   Restaurant.create!(name: Faker::Restaurant.name, address: Faker::Address.full_address,
-    phone_number: Faker::PhoneNumber.cell_phone,
+    phone_number: phone_num,
      category: [ "chinese", "italian", "japanese", "french", "belgian" ].sample)
   puts "Created #{Restaurant.count} new restaurants"
 end
